@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+</head>
+<body>
+<div th:fragment="footer">
+    <div class="container">
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    &copy; 2020 Computer center of NCU
+                    <span sec:authorize="isAuthenticated()">
+                        | Logged user: <span sec:authentication="name"></span> |
+                        Roles: <span sec:authentication="principal.authorities"></span> |
+                        <a th:href="@{/logout}">Sign Out</a>
+                    </span>
+                    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+                    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+</div>
+</body>
+</html>
